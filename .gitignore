@@ -1,0 +1,10 @@
+# sbt stuff
+target/
+
+# ensime stuff
+.ensime
+.ensime_lucene/
+
+# android stuff
+bin/
+gen/
