@@ -6,8 +6,7 @@ name := "scaloid-hello-world"
 
 scalaVersion := "2.10.3"
 
-// see project.properties
-//platformTarget in Android := "android-19"
+platformTarget in Android := "android-19"
 
 proguardCache in Android ++= Seq(
   ProguardCache("org.scaloid") % "org.scaloid"
