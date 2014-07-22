@@ -4,6 +4,7 @@ target/
 # ensime stuff
 .ensime
 .ensime_lucene/
+.ensime_cache/
 
 # android stuff
 bin/
