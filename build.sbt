@@ -6,9 +6,9 @@ name := "scaloid-hello-world"
 
 version := "0.1"
 
-scalaVersion := "2.11.4"
+scalaVersion := "2.11.8"
 
-platformTarget in Android := "android-21"
+platformTarget in Android := "android-23"
 
 proguardCache in Android ++= Seq(
   ProguardCache("org.scaloid") % "org.scaloid"
@@ -16,7 +16,7 @@ proguardCache in Android ++= Seq(
 
 proguardOptions in Android ++= Seq("-dontobfuscate", "-dontoptimize", "-keepattributes Signature", "-printseeds target/seeds.txt", "-printusage target/usage.txt", "-dontwarn scala.collection.**")
 
-libraryDependencies += "org.scaloid" %% "scaloid" % "3.6.1-10" withSources() withJavadoc()
+libraryDependencies += "org.scaloid" %% "scaloid" % "4.2" withSources() withJavadoc()
 
 scalacOptions in Compile += "-feature"
 
