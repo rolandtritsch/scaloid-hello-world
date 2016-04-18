@@ -1,25 +1,30 @@
 import android.Keys._
-
 android.Plugin.androidBuild
 
 name := "scaloid-hello-world"
-
 version := "0.1"
-
-scalaVersion := "2.11.8"
 
 platformTarget in Android := "android-23"
 
-proguardCache in Android ++= Seq(
-  ProguardCache("org.scaloid") % "org.scaloid"
-)
+javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
 
-proguardOptions in Android ++= Seq("-dontobfuscate", "-dontoptimize", "-keepattributes Signature", "-printseeds target/seeds.txt", "-printusage target/usage.txt", "-dontwarn scala.collection.**")
-
-libraryDependencies += "org.scaloid" %% "scaloid" % "4.2" withSources() withJavadoc()
-
+scalaVersion := "2.11.8"
 scalacOptions in Compile += "-feature"
 
-run <<= run in Android
+updateCheck in Android := {}
+proguardCache in Android ++= Seq("org.scaloid")
 
+proguardOptions in Android ++= Seq(
+  "-dontobfuscate",
+  "-dontoptimize",
+  "-keepattributes Signature",
+  "-printseeds target/seeds.txt",
+  "-printusage target/usage.txt",
+  "-dontwarn scala.collection.**",
+  "-dontwarn org.scaloid.**"
+)
+
+libraryDependencies += "org.scaloid" %% "scaloid" % "4.2"
+
+run <<= run in Android
 install <<= install in Android
