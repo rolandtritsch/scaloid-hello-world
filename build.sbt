@@ -25,6 +25,3 @@ proguardOptions in Android ++= Seq(
 )
 
 libraryDependencies += "org.scaloid" %% "scaloid" % "4.2"
-
-run <<= run in Android
-install <<= install in Android
